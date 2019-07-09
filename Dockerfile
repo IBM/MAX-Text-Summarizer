@@ -15,7 +15,6 @@
 #
 
 FROM codait/max-base:v1.1.3
-RUN apt-get update && apt-get -y install gcc && rm -rf /var/lib/apt/lists/*
 
 # Fill in these with a link to the bucket containing the model and the model file name
 ARG model_bucket=https://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-dev/max-text-summarizer/1.0.0
