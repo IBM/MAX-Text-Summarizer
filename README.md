@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.com/IBM/MAX-Text-Summarizer.svg?branch=master)](https://travis-ci.com/IBM/MAX-Text-Summarizer)
+[![API demo](https://img.shields.io/website/http/max-text-summarizer.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=API%20demo&down_message=down&up_message=up)](http://max-text-summarizer.max.us-south.containers.appdomain.cloud/)
+
 [<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial)
 
 # IBM Developer Model Asset Exchange: Text Summarizer
