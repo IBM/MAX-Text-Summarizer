@@ -26,8 +26,8 @@ SWAGGER_UI_DOC_EXPANSION = 'none'
 
 # API metadata
 API_TITLE = 'MAX Text Summarizer'
-API_DESC = 'Generate a summarized description of an input document.'
-API_VERSION = '1.0'
+API_DESC = 'Generate a summarized description of an input JSON file.'
+API_VERSION = '1.0.0'
 
 # default model
 MODEL_NAME = 'get_to_the_point'

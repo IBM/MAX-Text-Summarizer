@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.com/IBM/MAX-Text-Summarizer.svg?branch=master)](https://travis-ci.com/IBM/MAX-Text-Summarizer)
 [<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial)
 
 # IBM Developer Model Asset Exchange: Text Summarizer
