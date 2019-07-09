@@ -34,7 +34,7 @@ def test_swagger():
     json = r.json()
     assert 'swagger' in json
     assert json.get('info').get('title') == 'MAX Text Summarizer'
-    assert json.get('info').get('description') == 'Generate a summarized description of an input document.'
+    assert json.get('info').get('description') == 'Generate a summarized description of an input JSON file.'
 
 
 def test_metadata():
