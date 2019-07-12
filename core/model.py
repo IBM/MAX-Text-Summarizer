@@ -100,4 +100,4 @@ class ModelWrapper(MAXModelWrapper):
                 logger.error(err_msg + ' %s', e)
                 abort(400, err_msg)
 
-        return summary
+        return summary.decode('utf-8')
