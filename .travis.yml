@@ -10,4 +10,6 @@ install:
 script:
   - flake8 . --max-line-length=127 --exclude=./core/getpoint
   - sleep 30
-  - pytest tests/test.py
+  # "python -m" will add current working directory to sys.path.
+  # See https://docs.pytest.org/en/latest/usage.html#calling-pytest-through-python-m-pytest
+  - python -m pytest tests/test.py
