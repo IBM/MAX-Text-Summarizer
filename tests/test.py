@@ -19,6 +19,8 @@ import json
 import pytest
 import requests
 
+from core.util import process_punctuation
+
 
 MODEL_PREDICT_ENDPOINT = 'http://localhost:5000/model/predict'
 
@@ -34,7 +36,7 @@ def test_swagger():
     json = r.json()
     assert 'swagger' in json
     assert json.get('info').get('title') == 'MAX Text Summarizer'
-    assert json.get('info').get('description') == 'Generate a summarized description of an input document.'
+    assert json.get('info').get('description') == 'Generate a summarized description of a body of text.'
 
 
 def test_metadata():
@@ -67,6 +69,8 @@ def test_predict_valid():
     response = r.json()
     assert response['status'] == 'ok'
     assert len(response['summary_text']) == 2
+    for i, text in enumerate(json_data['text']):
+        assert len(response['summary_text'][i]) <= len(process_punctuation(text))
 
 
 def test_predict_sample():
@@ -81,6 +85,8 @@ def test_predict_sample():
         response = r.json()
         assert response['status'] == 'ok'
         assert len(response['summary_text']) == len(json_data['text'])
+        for i, text in enumerate(json_data['text']):
+            assert len(response['summary_text'][i]) <= len(process_punctuation(text))
 
 
 def test_predict_invalid_input_no_string():

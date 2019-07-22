@@ -17,7 +17,6 @@
 import logging
 import os
 from pathlib import Path
-import re
 from subprocess import Popen, PIPE
 from tempfile import NamedTemporaryFile
 from threading import Lock
@@ -27,6 +26,7 @@ from maxfw.model import MAXModelWrapper
 from config import ASSET_DIR, DEFAULT_MODEL_PATH, DEFAULT_VOCAB_PATH, MODEL_NAME
 
 from .getpoint.convert import convert_to_bin
+from .util import process_punctuation
 
 logger = logging.getLogger()
 
@@ -54,11 +54,10 @@ class ModelWrapper(MAXModelWrapper):
     def __del__(self):
         self.p_summarize.stdin.close()
 
+    def _pre_process(self, x):
+        return process_punctuation(x)
+
     def _predict(self, x):
-
-        # this model does not like punctuation touching characters
-        x = re.sub('([.,!?()])', r' \1 ', x)  # https://stackoverflow.com/a/3645946/
-
         if all(not c.isalpha() for c in x):
             abort(400, 'Input file contains no alphabetical characters.')
 
@@ -100,4 +99,13 @@ class ModelWrapper(MAXModelWrapper):
                 logger.error(err_msg + ' %s', e)
                 abort(400, err_msg)
 
-        return summary
+        summary = summary.decode('utf-8')
+
+        if len(summary) <= len(x):
+            return summary
+
+        # Truncate the summary length to be no longer than x. Note that x already has its punctuations processed.
+        if not summary[len(x)].isspace():  # We are truncating the middle of a word. Also remove the last word
+            return summary[:len(x)].rsplit(maxsplit=1)[0]
+        else:
+            return summary[:len(x)]

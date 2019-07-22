@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.com/IBM/MAX-Text-Summarizer.svg?branch=master)](https://travis-ci.com/IBM/MAX-Text-Summarizer)
+[![API demo](https://img.shields.io/website/http/max-text-summarizer.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=API%20demo&down_message=down&up_message=up)](http://max-text-summarizer.max.us-south.containers.appdomain.cloud/)
+
 [<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial)
 
 # IBM Developer Model Asset Exchange: Text Summarizer
@@ -12,7 +14,7 @@ The model files are hosted on [IBM Cloud Object Storage](https://s3.us-south.clo
 ## Model Metadata
 | Domain | Application | Industry  | Framework | Training Data | Input Data Format |
 | ------------- | --------  | -------- | --------- | --------- | -------------- |
-| NLP | Text Summarization | General | TensorFlow | CNN / Daily Mail | Text (txt file) |
+| NLP | Text Summarization | General | TensorFlow | CNN / Daily Mail | Text |
 
 
 ## References:
@@ -25,8 +27,9 @@ The model files are hosted on [IBM Cloud Object Storage](https://s3.us-south.clo
 
 | Component | License | Link  |
 | ------------- | --------  | -------- |
-| This repository | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) | [LICENSE](LICENSE) |
-| Pre-trained Model weights | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) | [LICENSE](https://github.com/becxer/pointer-generator/) |
+| This Repository | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) | [LICENSE](https://github.com/IBM/MAX-Text-Summarizer/blob/master/LICENSE) |
+| Third Party Code | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) | [LICENSE](https://github.com/becxer/pointer-generator/blob/master/LICENSE) |
+| Pre-Trained Model Weights | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) | [LICENSE](https://github.com/becxer/pointer-generator/) |
 | Training Data | [MIT](https://opensource.org/licenses/MIT) | [LICENSE](https://github.com/abisee/cnn-dailymail/blob/master/LICENSE.md) | [CNN / Daily Mail ](https://github.com/abisee/cnn-dailymail) |
 
 ## Pre-requisites:

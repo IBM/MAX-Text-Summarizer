@@ -14,23 +14,9 @@
 # limitations under the License.
 #
 
-import os
-import pathlib
+import re
 
-# Flask settings
-DEBUG = False
 
-# Flask-restplus settings
-RESTPLUS_MASK_SWAGGER = False
-SWAGGER_UI_DOC_EXPANSION = 'none'
-
-# API metadata
-API_TITLE = 'MAX Text Summarizer'
-API_DESC = 'Generate a summarized description of a body of text.'
-API_VERSION = '1.0.0'
-
-# default model
-MODEL_NAME = 'get_to_the_point'
-ASSET_DIR = pathlib.Path('./assets').absolute()
-DEFAULT_MODEL_PATH = os.path.join(ASSET_DIR, MODEL_NAME)
-DEFAULT_VOCAB_PATH = os.path.join(ASSET_DIR, 'vocab')
+def process_punctuation(x):
+    "this model does not like punctuation touching characters."
+    return re.sub('([.,!?()])', r' \1 ', x)  # https://stackoverflow.com/a/3645946/
