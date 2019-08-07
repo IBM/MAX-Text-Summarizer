@@ -38,7 +38,7 @@ class ModelWrapper(MAXModelWrapper):
         'name': 'MAX Text Summarizer',
         'description': '{} TensorFlow model trained on CNN/Daily Mail Data'.format(MODEL_NAME),
         'type': 'Text Analysis',
-        'source': 'https://developer.ibm.com/exchanges/models',
+        'source': 'https://developer.ibm.com/exchanges/models/all/max-text-summarizer/',
         'license': 'Apache V2'
     }
 
