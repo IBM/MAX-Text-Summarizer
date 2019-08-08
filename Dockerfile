@@ -33,6 +33,8 @@ COPY . /workspace
 # check file integrity
 RUN md5sum -c md5sums.txt
 
+RUN chmod 777 ./assets
+
 EXPOSE 5000
 
 CMD python app.py
