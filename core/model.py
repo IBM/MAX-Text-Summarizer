@@ -18,7 +18,7 @@ import logging
 import os
 from pathlib import Path
 from subprocess import Popen, PIPE
-from tempfile import NamedTemporaryFile
+from tempfile import NamedTemporaryFile, TemporaryDirectory
 from threading import Lock
 from flask import abort
 
@@ -47,12 +47,16 @@ class ModelWrapper(MAXModelWrapper):
     def __init__(self, path=DEFAULT_MODEL_PATH):
         logger.info('Loading model from: %s...', path)
 
+        self.log_dir = TemporaryDirectory()
         self.p_summarize = Popen(['python', 'core/getpoint/run_summarization.py', '--mode=decode',
-                                  '--vocab_path={}'.format(DEFAULT_VOCAB_PATH), '--log_root={}'.format(ASSET_DIR)],
+                                  '--ckpt_dir={}'.format(ASSET_DIR),
+                                  '--vocab_path={}'.format(DEFAULT_VOCAB_PATH),
+                                  '--log_root={}'.format(self.log_dir.name)],
                                  stdin=PIPE, stdout=PIPE)
 
     def __del__(self):
         self.p_summarize.stdin.close()
+        self.log_dir.cleanup()
 
     def _pre_process(self, x):
         return process_punctuation(x)
