@@ -33,6 +33,7 @@ FLAGS = tf.app.flags.FLAGS
 
 # Where to find data
 tf.app.flags.DEFINE_string('data_path', '', 'Path expression to tf.Example datafiles. Can include wildcards to access multiple datafiles.')
+tf.app.flags.DEFINE_string('ckpt_dir', '', 'Directory that contains the ckpt files.')
 tf.app.flags.DEFINE_string('vocab_path', '', 'Path expression to text vocabulary file.')
 
 # Important settings
@@ -138,7 +139,7 @@ def convert_to_coverage_model():
   # load all non-coverage weights from checkpoint
   saver = tf.train.Saver([v for v in tf.global_variables() if "coverage" not in v.name and "Adagrad" not in v.name])
   print("restoring non-coverage variables...")
-  curr_ckpt = util.load_ckpt(saver, sess)
+  curr_ckpt = util.load_ckpt(saver, sess, FLAGS.ckpt_dir)
   print("restored.")
 
   # save this model and quit
@@ -231,7 +232,7 @@ def run_eval(model, batcher, vocab):
   best_loss = None  # will hold the best loss achieved so far
 
   while True:
-    _ = util.load_ckpt(saver, sess) # load a new checkpoint
+    _ = util.load_ckpt(saver, sess, FLAGS.ckpt_dir) # load a new checkpoint
     batch = batcher.next_batch() # get the next batch
 
     # run eval on the batch
