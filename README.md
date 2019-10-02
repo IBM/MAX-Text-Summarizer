@@ -133,7 +133,7 @@ You should see a JSON response like that below:
 }
 ```
 
-Comparing to the original [sample email](samples/sample1.json), the text summarizer not only gives the summary text but also filters out some special characters such as `-lrb-` (representing `(`), `-rrb-` (representing `)`), etc, from the [Daily Mail](https://github.com/abisee/cnn-dailymail) dataset. 
+The text summarizer preserves in the output summary text some special characters such as `-lrb-` (representing `(`), `-rrb-` (representing `)`), etc. that appear in the input [sample](samples/sample1.json), which is excerpted from the [Daily Mail](https://github.com/abisee/cnn-dailymail) dataset.
 
 ### 4. Development
 
