@@ -31,7 +31,11 @@ RUN pip install -r requirements.txt
 COPY . /workspace
 
 # check file integrity
-RUN md5sum -c md5sums.txt
+RUN md5sum -c md5sums.txt && \
+  echo Ensuring that all model files are md5sum-checked... && \
+  echo Checked files: && export MD5_FILES="$(awk '{print $2}' md5sums.txt | xargs realpath | sort)" && echo "$MD5_FILES" && \
+  echo Model files: && export MODEL_FILES="$(find assets -type f | xargs realpath | sort)" && echo "$MODEL_FILES" && \
+  test "$MD5_FILES" = "$MODEL_FILES"
 
 EXPOSE 5000
 
