@@ -1,5 +1,0 @@
-5357d778854d2dfcbda636a0a33079ca  assets/checkpoint
-2c2c0b824a2504e5a185574d58851748  assets/model-238410.data-00000-of-00001
-6f2201cb13b7ae48171849cc5d1162c5  assets/model-238410.index
-8f3ac134a9aa1f48b88fdff55282a210  assets/model-238410.meta
-5450ab290a95355199aaefcde57c0c7d  assets/vocab
