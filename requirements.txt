@@ -1,2 +1,2 @@
-tensorflow==1.0.0
+tensorflow==1.0.0  # Do not upgrade. We use features specifically in this version (e.g., the format of the training data). See https://github.com/becxer/pointer-generator/#about-this-code
 pyrouge==0.1.3
