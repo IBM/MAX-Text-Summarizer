@@ -2,5 +2,6 @@ README.*
 __pycache__
 .gitignore
 .git/
-test/
+tests/
 samples/
+docs/
