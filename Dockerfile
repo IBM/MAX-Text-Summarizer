@@ -16,6 +16,9 @@
 
 FROM codait/max-base:v1.1.3
 
+# Upgrade packages to meet security criteria
+RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
+
 # Fill in these with a link to the bucket containing the model and the model file name
 ARG model_bucket=https://max.cdn.appdomain.cloud/max-text-summarizer/1.0.0
 ARG model_file=assets.tar.gz
