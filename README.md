@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/IBM/MAX-Text-Summarizer.svg?branch=master)](https://travis-ci.com/IBM/MAX-Text-Summarizer)
-[![API demo](https://img.shields.io/website/http/max-text-summarizer.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=API%20demo&down_message=down&up_message=up)](http://max-text-summarizer.max.us-south.containers.appdomain.cloud/)
+[![API demo](https://img.shields.io/website/http/max-text-summarizer.codait-prod-41208c73af8fca213512856c7a09db52-0000.us-east.containers.appdomain.cloud/swagger.json.svg?label=API%20demo&down_message=down&up_message=up)](http://max-text-summarizer.codait-prod-41208c73af8fca213512856c7a09db52-0000.us-east.containers.appdomain.cloud)
 
 [<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial)
 
@@ -9,7 +9,7 @@ This repository contains code to instantiate and deploy a text summarization mod
 The model was trained on the [CNN / Daily Mail](https://github.com/JafferWilson/Process-Data-of-CNN-DailyMail) dataset.
 The model has a vocabulary of approximately 200k words. The model is based on the ACL 2017 paper, [Get To The Point: Summarization with Pointer-Generator Networks](https://arxiv.org/abs/1704.04368).
 
-The model files are hosted on [IBM Cloud Object Storage](https://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-dev/max-text-summarizer/1.0.0/assets.tar.gz). The code in this repository deploys the model as a web service in a Docker container. This repository was developed as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/) and the public API is powered by [IBM Cloud](https://ibm.biz/Bdz2XM).
+The model files are hosted on [IBM Cloud Object Storage](https://max-cdn.cdn.appdomain.cloud/max-text-summarizer/1.0.0/assets.tar.gz). The code in this repository deploys the model as a web service in a Docker container. This repository was developed as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/) and the public API is powered by [IBM Cloud](https://ibm.biz/Bdz2XM).
 
 ## Model Metadata
 | Domain | Application | Industry  | Framework | Training Data | Input Data Format |
@@ -118,7 +118,7 @@ Use the `model/predict` endpoint to load some seed text (you can use one of the 
 
 You can also test it on the command line, for example:
 
-```
+```bash
 $ curl -d @samples/sample1.json -H "Content-Type: application/json" -XPOST http://localhost:5000/model/predict
 ```
 
