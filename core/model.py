@@ -17,7 +17,7 @@
 import logging
 import os
 from pathlib import Path
-from subprocess import Popen, PIPE
+from subprocess import Popen, PIPE  # nosec - B404:blacklist]
 from tempfile import NamedTemporaryFile, TemporaryDirectory
 from threading import Lock
 from flask import abort
@@ -48,7 +48,7 @@ class ModelWrapper(MAXModelWrapper):
         logger.info('Loading model from: %s...', path)
 
         self.log_dir = TemporaryDirectory()
-        self.p_summarize = Popen(['python', 'core/getpoint/run_summarization.py', '--mode=decode',
+        self.p_summarize = Popen(['python', 'core/getpoint/run_summarization.py', '--mode=decode',  # nosec - B603
                                   '--ckpt_dir={}'.format(ASSET_DIR),
                                   '--vocab_path={}'.format(DEFAULT_VOCAB_PATH),
                                   '--log_root={}'.format(self.log_dir.name)],
@@ -71,7 +71,7 @@ class ModelWrapper(MAXModelWrapper):
             # avoid file name conflicts.
             try:
                 # Make use of tmpfs on Linux if available.
-                directory = Path("/dev/shm/max-ts-{}".format(os.getpid()))
+                directory = Path("/dev/shm/max-ts-{}".format(os.getpid()))  # nosec - B108:hardcoded_tmp_directory
                 # The following two lines may also raise IOError
                 directory.mkdir(parents=True, exist_ok=True)
                 bin_file = NamedTemporaryFile(
