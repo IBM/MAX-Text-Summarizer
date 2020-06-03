@@ -9,6 +9,7 @@ install:
   - pip install -r requirements-test.txt
 script:
   - flake8 . --max-line-length=127 --exclude=./core/getpoint
+  - bandit -r .
   - sleep 30
   # "python -m" will add current working directory to sys.path.
   # See https://docs.pytest.org/en/latest/usage.html#calling-pytest-through-python-m-pytest
