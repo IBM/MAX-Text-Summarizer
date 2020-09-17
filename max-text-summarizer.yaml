@@ -27,6 +27,6 @@ spec:
     spec:
       containers:
       - name: max-text-summarizer
-        image: codait/max-text-summarizer:latest
+        image: quay.io/codait/max-text-summarizer:latest
         ports:
         - containerPort: 5000
