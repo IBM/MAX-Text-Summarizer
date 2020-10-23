@@ -36,6 +36,7 @@ The model files are hosted on [IBM Cloud Object Storage](https://max-cdn.cdn.app
 
 * `docker`: The [Docker](https://www.docker.com/) command-line interface. Follow the [installation instructions](https://docs.docker.com/install/) for your system.
 * The minimum recommended resources for this model is 4GB Memory and 4 CPUs.
+* If you are on x86-64/AMD64, your CPU must support AVX at the minimum.
 
 # Steps
 
