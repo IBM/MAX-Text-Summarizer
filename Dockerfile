@@ -26,6 +26,7 @@ ARG model_file=assets.tar.gz
 RUN useradd --create-home max && echo "max ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN chown -R max:max /opt/conda
 USER max
+WORKDIR /home/max
 
 RUN wget -nv --show-progress --progress=bar:force:noscroll ${model_bucket}/${model_file} --output-document=assets/${model_file} && \
   tar -x -C assets/ -f assets/${model_file} -v && rm assets/${model_file}
