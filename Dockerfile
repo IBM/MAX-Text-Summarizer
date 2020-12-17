@@ -23,7 +23,7 @@ RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
 ARG model_bucket=https://max-cdn.cdn.appdomain.cloud/max-text-summarizer/1.0.0
 ARG model_file=assets.tar.gz
 
-RUN useradd --create-home max && echo "max ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN useradd --create-home max
 RUN chown -R max:max /opt/conda
 USER max
 WORKDIR /home/max
